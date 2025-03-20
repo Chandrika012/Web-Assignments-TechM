@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg,black, #fad0c4);
+        }
+        .calculator {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+        .calculator:hover {
+            transform: scale(1.05);
+        }
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 80%;
+            border: 2px solid black;
+            border-radius: 5px;
+            outline: none;
+        }
+        button {
+            background: black;
+            color: aqua;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: blueviolet;
+        }
+        .result {
+            margin-top: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff5e78;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>Simple Calculator</h2>
+        <input type="number" id="i" placeholder="Enter first number">
+        <input type="number" id="j" placeholder="Enter second number">
+        <button onclick="calculate()">Submit</button>
+        <div class="Result" id="result"></div>
+    </div>
+
+    <script>
+        let a, b;
+
+        document.getElementById("i").addEventListener("input", function(event) {
+            a = parseFloat(event.target.value);
+        });
+
+        document.getElementById("j").addEventListener("input", function(event) {
+            b = parseFloat(event.target.value);
+        });
+
+        function calculate() {
+            if (!isNaN(a) && !isNaN(b)) {
+                document.getElementById("result").innerText = `Result: ${a + b}`;
+            } else {
+                document.getElementById("result").innerText = "Please enter valid numbers!";
+            }
+        }
+    </script>
+</body>
+</html>
